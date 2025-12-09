@@ -10,6 +10,9 @@ license = "MIT"
 readme = "README.md"
 exclude = [ "assets/*", "examples/*", "runs/*", "benches/*", "tests/*" ]
 
+[lib]
+crate-type = [ "dylib" ]
+
 [dependencies]
 anyhow = { version = "1" }
 slsl = { version = "0.0.7", features = [ "rayon" ], optional = true }
