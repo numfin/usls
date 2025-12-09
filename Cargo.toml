@@ -11,7 +11,7 @@ readme = "README.md"
 exclude = [ "assets/*", "examples/*", "runs/*", "benches/*", "tests/*" ]
 
 [lib]
-crate-type = [ "dylib" ]
+crate-type = [ "rlib", "dylib" ]
 
 [dependencies]
 anyhow = { version = "1" }
