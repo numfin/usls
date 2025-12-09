@@ -314,7 +314,7 @@ impl Ops<'_> {
     pub fn u8_slice_to_f32(data: &[u8]) -> Result<Vec<f32>> {
         let size_in_bytes = 4;
         let elem_count = data.len() / size_in_bytes;
-        if (data.as_ptr() as usize) % size_in_bytes == 0 {
+        if (data.as_ptr() as usize).is_multiple_of(size_in_bytes) {
             let data: &[f32] =
                 unsafe { std::slice::from_raw_parts(data.as_ptr() as *const f32, elem_count) };
 

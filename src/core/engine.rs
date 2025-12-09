@@ -246,7 +246,7 @@ impl Engine {
             self.inputs_minoptmax = Self::build_ort_inputs(&inputs, self.iiixs())?;
 
             // session
-            ort::init().commit()?;
+            ort::init().commit();
             let session = self.build_session(&inputs)?;
 
             // onnxio
@@ -1150,7 +1150,7 @@ impl Engine {
         let onnx = self.onnx.as_ref()?;
         match onnx.session.metadata() {
             Err(_) => None,
-            Ok(metadata) => metadata.custom(key).ok().flatten(),
+            Ok(metadata) => metadata.custom(key),
         }
     }
 

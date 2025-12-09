@@ -4,8 +4,10 @@ use crate::{Color, ColorSource, Palette, TextLoc, TextStyle, ThicknessDirection}
 
 /// Drawing mode for oriented bounding boxes (OBB).
 #[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Default)]
 pub enum ObbStyleMode {
     /// Solid line (default)
+    #[default]
     Solid,
     /// Dashed line
     Dashed {
@@ -28,11 +30,6 @@ pub enum ObbStyleMode {
     },
 }
 
-impl Default for ObbStyleMode {
-    fn default() -> Self {
-        Self::Solid
-    }
-}
 
 impl ObbStyleMode {
     /// Create a dashed mode with default values

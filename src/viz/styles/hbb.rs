@@ -4,8 +4,10 @@ use crate::{Color, ColorSource, Palette, TextLoc, TextStyle, TextStyleMode, Thic
 
 /// Drawing mode for horizontal bounding boxes (HBB).
 #[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Default)]
 pub enum HbbStyleMode {
     /// Solid line rectangle (default)
+    #[default]
     Solid,
     /// Dashed line rectangle
     Dashed {
@@ -28,11 +30,6 @@ pub enum HbbStyleMode {
     },
 }
 
-impl Default for HbbStyleMode {
-    fn default() -> Self {
-        Self::Solid
-    }
-}
 
 impl HbbStyleMode {
     /// Create a dashed mode with default values

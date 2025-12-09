@@ -19,8 +19,10 @@ impl Default for GlowRadius {
 
 /// Drawing mode for mask rendering.
 #[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Default)]
 pub enum MaskStyleMode {
     /// Default: overlay mask color on original image
+    #[default]
     Overlay,
     /// Halo effect: grayscale background + colored glow around mask edges
     Halo {
@@ -31,11 +33,6 @@ pub enum MaskStyleMode {
     },
 }
 
-impl Default for MaskStyleMode {
-    fn default() -> Self {
-        Self::Overlay
-    }
-}
 
 impl MaskStyleMode {
     /// Create halo mode with purple glow using percentage-based radius (proportional)

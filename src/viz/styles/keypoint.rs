@@ -4,8 +4,10 @@ use crate::{Color, ColorSource, Palette, Skeleton, TextLoc, TextStyle, TextStyle
 
 /// Drawing mode for keypoint rendering.
 #[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Default)]
 pub enum KeypointStyleMode {
     /// Circle (default)
+    #[default]
     Circle,
     /// Star shape (e.g., 5-pointed star)
     Star {
@@ -43,11 +45,6 @@ pub enum KeypointStyleMode {
     },
 }
 
-impl Default for KeypointStyleMode {
-    fn default() -> Self {
-        Self::Circle
-    }
-}
 
 impl KeypointStyleMode {
     /// Create a 5-pointed star with default inner ratio
