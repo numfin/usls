@@ -68,7 +68,7 @@ ort = { git = "https://github.com/numfin/ort", branch = "rustls", optional = tru
   "tls-rustls",
 ] }
 hf-hub = { version = "0.4.3", default-features = false, features = [
-  "ureq",
+  "tokio",
   "rustls-tls",
 ], optional = true }
 tokenizers = { version = "0.22.1", optional = true }
