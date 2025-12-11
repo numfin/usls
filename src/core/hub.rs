@@ -2,6 +2,7 @@ use anyhow::{Context, Result};
 use indicatif::ProgressStyle;
 use regex::Regex;
 use serde::{Deserialize, Serialize};
+use std::env::current_dir;
 use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 use std::time::Duration;
@@ -509,7 +510,7 @@ impl Hub {
         )?;
 
         // Create temporary file in system temp directory (more secure and reliable)
-        let mut temp_file = NamedTempFile::new()
+        let mut temp_file = NamedTempFile::new_in(current_dir().unwrap().join("assets"))
             .context("Failed to create temporary download file in system temp directory")?;
 
         let mut reader = resp.into_body().into_reader();
